@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.admin.sites import all_sites
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(f'{site.name}/', site.urls) for site in all_sites
 ]
